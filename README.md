@@ -96,7 +96,32 @@ The first player to get rid of all their cards wins the round. Everyone else los
 
 ## UML Diagram
 
-![UNO UML Class Diagram](UML.png)
+![UNO UML Class Diagram](docs/UML.png)
+
+## Project Structure
+
+All Java source files live at the repo root for simple `javac *.java` compilation.
+
+```
+UNO/
+├── README.md
+├── UML.png
+├── UNO_Proposal.pdf
+├── .gitignore
+├── GameLauncher.java     [Hussain]
+├── Game.java             [Hussain]
+├── Card.java             [Simon]
+├── NumberCard.java       [Simon]
+├── ActionCard.java       [Simon]
+├── WildCard.java         [Simon]
+├── Color.java            [Simon]
+├── ActionType.java       [Simon]
+├── WildType.java         [Simon]
+├── Deck.java             [Simon]
+├── Player.java           [David]
+├── HumanPlayer.java      [David]
+└── ComputerPlayer.java   [David]
+```
 
 ## Responsibilities and Deadlines
 
