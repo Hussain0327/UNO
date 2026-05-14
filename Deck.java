@@ -20,6 +20,16 @@ public class Deck {
                 if(i!=0) cards.add(new NumberCard(i, color));
             }
         }
+        for (WildCardType type : WildCardType.values()){
+            for(int i = 0; i<4;i++){
+                cards.add(new WildCard(type));
+            }
+        }
+        for (Color color: Color.values()){
+            for(ActionType type : ActionType.values()){
+                cards.add(new ActionCard(type, color));
+            }
+        }
         shuffle(cards);
         return cards;
     }
@@ -29,7 +39,7 @@ public class Deck {
     }
 
     public void reshuffleDiscard(){
-        cards.addAll((ArrayList<Card>)discardPile.reversed());
+        cards.addAll(discardPile.reversed());
         shuffle(cards);
         discardPile.clear();
     }
