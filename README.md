@@ -4,7 +4,6 @@
 
 - Raja Hussain (rh4472@nyu.edu)
 - Simon Ames (swa8451@nyu.edu)
-- David Hamilton (dmh8045@nyu.edu)
 
 ## Game Description
 
@@ -118,9 +117,9 @@ UNO/
 ├── ActionType.java       [Simon]
 ├── WildType.java         [Simon]
 ├── Deck.java             [Simon]
-├── Player.java           [David]
-├── HumanPlayer.java      [David]
-└── ComputerPlayer.java   [David]
+├── Player.java           [Hussain]
+├── HumanPlayer.java      [Hussain]
+└── ComputerPlayer.java   [Hussain]
 ```
 
 ## Responsibilities and Deadlines
@@ -133,17 +132,13 @@ UNO/
 - Unit tests for the card classes
 - **First draft due:** Wednesday, May 13, 2026
 
-### Raja Hussain — backend (game engine)
+### Raja Hussain — backend (game engine) / client / user
 
 - The `Game` class: turn loop, direction tracking, active color tracking
 - Action card effect routing (Skip, Reverse, Draw Two) and wild card resolution
 - Win condition logic and UNO call enforcement
 - `GameLauncher` (main entry point)
 - Game-level tests
-- **First draft due:** Wednesday, May 13, 2026
-
-### David Hamilton — client / user
-
 - The `Player` class hierarchy (`Player`, `HumanPlayer`, `ComputerPlayer`)
 - A simple AI for `ComputerPlayer` (play first valid card, pick most-held color)
 - Console display: hand rendering, game-state rendering, prompts, winner screen
