@@ -1,11 +1,13 @@
 public class WildCard extends Card {
-    public WildCard(){
+    WildCardType type;
+    public WildCard(WildCardType type){
+        this.type = type;
     }
-    public boolean isPlayable(Card topCard){
+    public boolean isPlayable(Card topCard, Color activeColor){
         return true;
     }
     public String toString(){
-        return ("Wild Card: " + (color.name() == null ? "not specified" : color.name()));
+        return ((color.name() == null ? "not specified" : color.name()));
     }
 
     public void chooseColor(Color color){
@@ -15,5 +17,14 @@ public class WildCard extends Card {
     public void applyEffect(Game game){
         game.setCurrentColor(color);
     }
+
+    public WildCardType getWildType(){
+        return type;
+    }
     
+}
+
+enum WildCardType{
+    WILD_DRAW_FOUR,
+    WILD
 }

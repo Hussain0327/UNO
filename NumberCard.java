@@ -3,12 +3,12 @@ public class NumberCard extends Card {
         number = num;
         color = col;
     }
-    public boolean isPlayable(Card topCard){
-        if(topCard.number == number || topCard.color == color) return true;
+    public boolean isPlayable(Card topCard, Color activeColor){
+        if(topCard.number == number || activeColor == color) return true;
         else return false;
     }
     public String toString(){
-        return ("Number Card: " + color.name()+ " "+ number);
+        return (color.name()+ " "+ number);
     }
 }
 

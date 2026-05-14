@@ -5,13 +5,12 @@ public class ActionCard extends Card{
         color = col;
         actionType = type;
     }
-    public boolean isPlayable(Card topCard){
-        if(actionType == ActionType.DRAW_FOUR) return true;
-        else if (topCard.color == color) return true;
+    public boolean isPlayable(Card topCard, Color activeColor){
+        if (activeColor == color) return true;
         else return false;
     }
     public String toString(){
-        return ("Action Card: " +(color.name() == null ? "" : color.name())+ actionType.name());
+        return ((color.name() == null ? "" : color.name())+ actionType.name());
     }
 
     public void setColor(Color color){
@@ -24,9 +23,6 @@ public class ActionCard extends Card{
 
     public void applyEffect(Game game){
         switch (actionType) {
-            case DRAW_FOUR:
-                game.drawCardsForNextPlayer(4);
-                break;
             case DRAW_TWO:
                 game.drawCardsForNextPlayer(2);
                 break;
@@ -43,7 +39,6 @@ public class ActionCard extends Card{
 }
 
 enum ActionType{
-    DRAW_FOUR,
     DRAW_TWO,
     REVERSE,
     SKIP

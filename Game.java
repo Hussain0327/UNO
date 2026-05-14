@@ -53,10 +53,6 @@ public class Game {
                     drawCards(players.get(0), 2);
                     currentPlayer = 1 % players.size();
                     break;
-                case DRAW_FOUR:
-                    drawCards(players.get(0), 4);
-                    currentPlayer = 1 % players.size();
-                    break;
             }
         } else if (starter instanceof WildCard) {
             currentColor = players.get(0).chooseColor();
@@ -90,10 +86,6 @@ public class Game {
             if (played instanceof WildCard) {
                 Color chosen = p.chooseColor();
                 ((WildCard) played).chooseColor(chosen);
-                currentColor = chosen;
-            } else if (played instanceof ActionCard && ((ActionCard)played).getAction() == ActionType.DRAW_FOUR) {
-                Color chosen = p.chooseColor();
-                ((ActionCard)played).setColor(chosen);
                 currentColor = chosen;
             } else {
                 currentColor = played.getColor();
@@ -189,7 +181,7 @@ public class Game {
 
     private boolean isWildDrawFour(Card c) {
         return c instanceof WildCard
-            && ((WildCard) c).getWildType() == WildType.WILD_DRAW_FOUR;
+            && ((WildCard) c).getWildType() == WildCardType.WILD_DRAW_FOUR;
     }
 
     private void drawCards(Player p, int n) {
