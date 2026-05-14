@@ -1,3 +1,3 @@
-public class ActionCard {
+public class ActionCard extends Card {
     
 }
