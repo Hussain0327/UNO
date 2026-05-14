@@ -15,4 +15,5 @@ public class WildCard extends Card {
     public void applyEffect(Game game){
         game.setCurrentColor(color);
     }
+    
 }

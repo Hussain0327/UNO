@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
-public class Deck {
-    private final ArrayList<Card> cards;
-    private final ArrayList<Card> discardPile;
+public class Deck2 {
+    ArrayList<Card> deck;
+    ArrayList<Card> discard;
 
     public Deck(){
-        cards = GenerateDeck();
-        discardPile = new ArrayList<>();
+        deck = GenerateDeck();
+        discard = new ArrayList<>();
     }
 
     public ArrayList<Card> GenerateDeck(){
@@ -29,25 +28,20 @@ public class Deck {
     }
 
     public void reshuffleDiscard(){
-        cards.addAll((ArrayList<Card>)discardPile.reversed());
-        shuffle(cards);
-        discardPile.clear();
+        deck.addAll((ArrayList<Card>)discard.reversed());
+        shuffle(deck);
+        discard.clear();
     }
     
     public Card drawCard(){
-        if(cards.isEmpty()){
-            reshuffleDiscard();
+        if(deck.isEmpty()){
+            
         }
-        Card card = cards.removeFirst();
+        Card card = deck.removeFirst();
         return card;
     }
 
     public void discard(Card card){
-        discardPile.add(card);
-    }
-
-    public Card topOfDiscard() {
-        return discardPile.getFirst();
+        discard.add(card);
     }
 }
-

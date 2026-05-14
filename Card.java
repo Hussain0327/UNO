@@ -8,3 +8,6 @@ public abstract class Card {
         return color;
     }
 }
+
+
+// i added methods and fields which i needed for my classes 
