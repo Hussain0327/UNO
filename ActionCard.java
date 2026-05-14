@@ -10,7 +10,7 @@ public class ActionCard extends Card{
         else return false;
     }
     public String toString(){
-        return (color.name()+ actionType.name());
+        return (color.name()+" "+actionType.name());
     }
 
     public void setColor(Color color){

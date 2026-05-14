@@ -7,7 +7,7 @@ public class WildCard extends Card {
         return true;
     }
     public String toString(){
-        return ((color.name() == null ? "not specified" : color.name()));
+        return (type+ " "+(color.name() == null ? "not specified" : color.name()));
     }
 
     public void chooseColor(Color color){
