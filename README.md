@@ -1,5 +1,9 @@
 # UNO – Project Proposal
 
+## Read docs from today:
+
+[MAY14TH](MAY14TH.md)
+
 ## Team Members
 
 - Raja Hussain (rh4472@nyu.edu)
