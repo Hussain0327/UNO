@@ -56,6 +56,7 @@ public class Game {
             }
         } else if (starter instanceof WildCard) {
             currentColor = players.get(0).chooseColor();
+            ((WildCard) starter).chooseColor(currentColor);
             currentPlayer = 0;
         } else {
             currentColor = starter.getColor();
@@ -181,7 +182,7 @@ public class Game {
 
     private boolean isWildDrawFour(Card c) {
         return c instanceof WildCard
-            && ((WildCard) c).getWildType() == WildCardType.WILD_DRAW_FOUR;
+            && ((WildCard) c).getWildType() == WildType.WILD_DRAW_FOUR;
     }
 
     private void drawCards(Player p, int n) {

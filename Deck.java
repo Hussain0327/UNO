@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Deck {
     private final ArrayList<Card> cards;
@@ -14,19 +13,23 @@ public class Deck {
     public ArrayList<Card> GenerateDeck(){
         ArrayList<Card> cards = new ArrayList<>();
 
-        for (Color color: Color.values()){
-            for(int i = 1; i < 10; i++){
+        for (Color color : Color.values()) {
+            if (color == Color.WILD) continue;
+            cards.add(new NumberCard(0, color));
+            for (int i = 1; i < 10; i++) {
                 cards.add(new NumberCard(i, color));
-                if(i!=0) cards.add(new NumberCard(i, color));
+                cards.add(new NumberCard(i, color));
             }
         }
-        for (WildCardType type : WildCardType.values()){
-            for(int i = 0; i<4;i++){
+        for (WildType type : WildType.values()) {
+            for (int i = 0; i < 4; i++) {
                 cards.add(new WildCard(type));
             }
         }
-        for (Color color: Color.values()){
-            for(ActionType type : ActionType.values()){
+        for (Color color : Color.values()) {
+            if (color == Color.WILD) continue;
+            for (ActionType type : ActionType.values()) {
+                cards.add(new ActionCard(type, color));
                 cards.add(new ActionCard(type, color));
             }
         }
@@ -39,9 +42,12 @@ public class Deck {
     }
 
     public void reshuffleDiscard(){
-        cards.addAll(discardPile.reversed());
+        if (discardPile.isEmpty()) return;
+        Card top = discardPile.removeLast();
+        cards.addAll(discardPile);
         shuffle(cards);
         discardPile.clear();
+        discardPile.add(top);
     }
     
     public Card drawCard(){
@@ -57,7 +63,7 @@ public class Deck {
     }
 
     public Card topOfDiscard() {
-        return discardPile.getFirst();
+        return discardPile.getLast();
     }
 }
 

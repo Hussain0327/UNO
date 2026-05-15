@@ -26,7 +26,9 @@ public class ComputerPlayer extends Player {
     public Color chooseColor() {
         int red = 0, yellow = 0, green = 0, blue = 0;
         for (Card c : getHand()) {
-            switch (c.getColor()) {
+            Color cc = c.getColor();
+            if (cc == null) continue;
+            switch (cc) {
                 case RED:    red++;    break;
                 case YELLOW: yellow++; break;
                 case GREEN:  green++;  break;

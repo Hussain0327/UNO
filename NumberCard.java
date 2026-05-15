@@ -3,18 +3,17 @@ public class NumberCard extends Card {
         number = num;
         color = col;
     }
+
+    @Override
     public boolean isPlayable(Card topCard, Color activeColor){
-        if(topCard.number == number || activeColor == color) return true;
-        else return false;
+        if (activeColor == color) return true;
+        if (topCard instanceof NumberCard && ((NumberCard) topCard).number == number) return true;
+        return false;
     }
+
+    @Override
     public String toString(){
         return (color.name()+ " "+ number);
     }
 }
 
-enum Color {
-    RED,
-    GREEN,
-    BLUE,
-    YELLOW
-}

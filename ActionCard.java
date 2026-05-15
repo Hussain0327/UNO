@@ -7,7 +7,8 @@ public class ActionCard extends Card{
     }
     public boolean isPlayable(Card topCard, Color activeColor){
         if (activeColor == color) return true;
-        else return false;
+        if (topCard instanceof ActionCard && ((ActionCard) topCard).actionType == actionType) return true;
+        return false;
     }
     public String toString(){
         return (color.name()+" "+actionType.name());
@@ -25,6 +26,7 @@ public class ActionCard extends Card{
         switch (actionType) {
             case DRAW_TWO:
                 game.drawCardsForNextPlayer(2);
+                game.skipNextPlayer();
                 break;
             case REVERSE:
                 game.reverseDirection();
@@ -36,10 +38,4 @@ public class ActionCard extends Card{
                 break;
         }
     }
-}
-
-enum ActionType{
-    DRAW_TWO,
-    REVERSE,
-    SKIP
 }
