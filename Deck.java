@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Deck {
     private final ArrayList<Card> cards;
@@ -18,11 +17,10 @@ public class Deck {
             if(color == Color.WILD) continue;
             for(int i = 1; i < 10; i++){
                 cards.add(new NumberCard(i, color));
-                if(i!=0) cards.add(new NumberCard(i, color));
             }
         }
-        for (WildCardType type : WildCardType.values()){
-            for(int i = 0; i<4;i++){
+        for (WildType type : WildType.values()) {
+            for (int i = 0; i < 4; i++) {
                 cards.add(new WildCard(type));
             }
         }
@@ -41,9 +39,12 @@ public class Deck {
     }
 
     public void reshuffleDiscard(){
-        cards.addAll(discardPile.reversed());
+        if (discardPile.isEmpty()) return;
+        Card top = discardPile.removeLast();
+        cards.addAll(discardPile);
         shuffle(cards);
         discardPile.clear();
+        discardPile.add(top);
     }
     
     public Card drawCard(){

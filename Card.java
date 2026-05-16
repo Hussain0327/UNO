@@ -9,5 +9,3 @@ public abstract class Card {
     }
 }
 
-
-// i added methods and fields which i needed for my classes 

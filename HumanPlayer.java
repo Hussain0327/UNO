@@ -11,8 +11,9 @@ public class HumanPlayer extends Player {
         gui.updateState(g);
         try {
             int choice = gui.awaitCardChoice(this, g);
-            if (choice >= 0 && handSize() == 2 && gui.consumeUnoCall()) {
-                setSaidUno(true);
+            if (choice >= 0 && handSize() == 2) {
+                boolean called = gui.consumeUnoCall() || gui.askUnoCall();
+                if (called) setSaidUno(true);
             }
             return choice;
         } catch (InterruptedException e) {
