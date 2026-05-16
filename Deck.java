@@ -15,6 +15,7 @@ public class Deck {
         ArrayList<Card> cards = new ArrayList<>();
 
         for (Color color: Color.values()){
+            if(color == Color.WILD) continue;
             for(int i = 1; i < 10; i++){
                 cards.add(new NumberCard(i, color));
                 if(i!=0) cards.add(new NumberCard(i, color));
@@ -26,6 +27,7 @@ public class Deck {
             }
         }
         for (Color color: Color.values()){
+            if(color == Color.WILD) continue;
             for(ActionType type : ActionType.values()){
                 cards.add(new ActionCard(type, color));
             }
@@ -57,7 +59,7 @@ public class Deck {
     }
 
     public Card topOfDiscard() {
-        return discardPile.getFirst();
+        return discardPile.getLast();
     }
 }
 

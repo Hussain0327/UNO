@@ -16,5 +16,6 @@ enum Color {
     RED,
     GREEN,
     BLUE,
-    YELLOW
+    YELLOW,
+    WILD
 }

@@ -2,12 +2,13 @@ public class WildCard extends Card {
     WildCardType type;
     public WildCard(WildCardType type){
         this.type = type;
+        this.color = Color.WILD;
     }
     public boolean isPlayable(Card topCard, Color activeColor){
         return true;
     }
     public String toString(){
-        return (type+ " "+(color.name() == null ? "not specified" : color.name()));
+        return (type.toString());
     }
 
     public void chooseColor(Color color){
